@@ -32,9 +32,8 @@ pipeline {
           agent { label 'production' }
           steps {
             unstash 'app'
-            sh 'cp -R build/* /var/blockchains/nbxplorer'
-            sh 'chgrp -R www-data /var/blockchains/nbxplorer'
-            sh 'chmod -R g+w /var/blockchains/nbxplorer'
+            sh 'sudo cp -R build/* /var/blockchains/nbxplorer'
+            sh 'sudo chown -R blockchain:blockchain /var/blockchains/nbxplorer'
           }
         }
       }
