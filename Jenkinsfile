@@ -14,10 +14,8 @@ pipeline {
           sh 'dotnet publish -c Release -r linux-x64 --self-contained true --output build/ NBXplorer/NBXplorer.csproj'
           stash includes: '**/build/', name: 'app'
       }
-
     }
 
-    /*
     stage("deploy") {
       stages {
         stage("staging") {
@@ -38,8 +36,6 @@ pipeline {
         }
       }
     }
-    */
   }
 }
-
 
